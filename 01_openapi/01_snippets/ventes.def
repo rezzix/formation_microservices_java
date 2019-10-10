@@ -1,0 +1,133 @@
+openapi: 3.0.2
+info:
+  description: ventes en microservice.
+  version: 1.0.0
+  title: ventes
+  contact:
+    email: boughaba@formation.com
+paths:
+  /clients:
+    get:
+      tags:
+        - clients
+      summary: liste des clients.
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  nom:
+                    type: string
+                  prenom:
+                    type: string
+                  ventes:
+                    $ref: '#/components/schemas/Vente'
+                  
+  '/client/{clientId}':
+    get:
+      tags:
+        - clients
+      summary: Affciher les détails d'un client.
+      parameters:
+        - name: clientId
+          in: path
+          description: The ID of the sensor to which the measurement relates.
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Client'
+  '/client':
+    post:
+      tags:
+        - clients
+      summary: ajouter un nouveau client.
+      parameters:
+        - name: nom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: prenom
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client'
+        description: The measurement to store.
+        required: true
+      responses:
+        '202':
+          description: Accepted
+          
+  '/vente/{clientId}':
+    post:
+      tags:
+        - ventes
+      summary: ajouter un nouvelle vente.
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+              type: number
+        - name: montant
+          in: query
+          required: true
+          schema:
+              type: number
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client'
+        description: The measurement to store.
+        required: true
+      responses:
+        '202':
+          description: Accepted
+          
+servers:
+  - url: 'http://localhost/'
+    description: Local development server
+  - url: 'http://someotherhost.com/v1'
+    description: Production server
+components:
+#  securitySchemes:
+#    weather_service_auth:
+#      type: http
+#      scheme: bearer
+#      bearerFormat: JWT
+  schemas:
+    Client:
+      type: object
+      properties:
+        id:
+          type: number
+        nom:
+          type: string
+        prenom:
+          type: string
+    Vente:
+      type: object
+      properties:
+        id:
+          type: number
+        montant:
+          type: string
