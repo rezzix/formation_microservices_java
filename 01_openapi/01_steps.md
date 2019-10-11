@@ -4,8 +4,6 @@
 docker run -d -p 80:8080  swaggerapi/swagger-editor 
 
 
-
-
 # Sur Eclipse
 ## importer le projet maven
 Nouveau projet maven sans archetype
@@ -28,7 +26,6 @@ Activer la génération du fichier de description WADL sur web.xml
         </init-param>
         
 http://localhost:8080/ventes_v1/application.wadl
-
 
 
 # Troubleshooting
