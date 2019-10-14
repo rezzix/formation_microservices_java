@@ -122,6 +122,34 @@ Dans le fichiers application.properties :
 	    })
 
 
+## Activer le module actuator :
+### Ajouter la dependance Actuator :
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-actuator</artifactId>
+	</dependency>
+
+
+### Ajouter les infos de l'application dans le fichier application.properties
+> info.app.name=Formation Spring 4
+> info.app.description=Gestion des clients avec Sprin boot
+> info.app.version=1.0.0
+
+### Vérifier les endpoints :
+
+* /health
+* /info
+
+### Desactiver la securité pour les status et trace
+
+> management.security.enabled=false
+
+### Vérifier les endpoints :
+* /metrics
+* /trace
+
+
+
 # Troubleshooting
 1. Problèmes de syntaxe sur eclipse
   * Vérifier si le projet se compile avec malgré les erreurs Eclipse (mauvaise synchronisation)
