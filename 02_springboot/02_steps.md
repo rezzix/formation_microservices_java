@@ -7,11 +7,11 @@ utiliser le nom d'artifact 02_springboot
 
 ## Modifier le project object model (pom.xml)
 Modifier la définition du POM en ajoutant:
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.7.RELEASE</version>
-	</parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.7.RELEASE</version>
+    </parent>
 
 NB: supprimer le groupe et version existants
 
