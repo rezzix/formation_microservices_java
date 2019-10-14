@@ -26,7 +26,7 @@ paths:
                   prenom:
                     type: string
                   ventes:
-                    $ref: '#/components/schemas/Vente'
+                    $ref: '#/components/schemas/Sale'
                   
   '/client/{clientId}':
     get:
@@ -36,7 +36,7 @@ paths:
       parameters:
         - name: clientId
           in: path
-          description: The ID of the sensor to which the measurement relates.
+          description: L'ID du client
           required: true
           schema:
             type: number
@@ -48,7 +48,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Client'
+                  $ref: '#/components/schemas/Customer'
   '/client':
     post:
       tags:
@@ -69,7 +69,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Client'
+              $ref: '#/components/schemas/Customer'
         description: The measurement to store.
         required: true
       responses:
@@ -96,7 +96,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Client'
+              $ref: '#/components/schemas/Customer'
         description: The measurement to store.
         required: true
       responses:
@@ -104,7 +104,7 @@ paths:
           description: Accepted
           
 servers:
-  - url: 'http://localhost/'
+  - url: 'http://localhost/ventes_v1'
     description: Local development server
   - url: 'http://someotherhost.com/v1'
     description: Production server
@@ -115,19 +115,19 @@ components:
 #      scheme: bearer
 #      bearerFormat: JWT
   schemas:
-    Client:
+    Customer:
       type: object
       properties:
         id:
           type: number
-        nom:
+        firstName:
           type: string
-        prenom:
+        lasttName:
           type: string
-    Vente:
+    Sale:
       type: object
       properties:
         id:
           type: number
-        montant:
+        amount:
           type: string
