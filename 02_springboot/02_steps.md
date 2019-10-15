@@ -58,7 +58,7 @@ Sur le pom :
 ### lancer la BD et vérifier qu'elle est accessible
 lancer la commande :
 
-    java -jar /home/user/.m2/repository/com/h2database/h2/V.R.R/h2-V.R.R.jar -tcpAllowOthers
+    >java -jar /home/user/.m2/repository/com/h2database/h2/V.R.R/h2-V.R.R.jar -tcpAllowOthers
     
 V.R.R = version, release, revision
 		
