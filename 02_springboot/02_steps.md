@@ -55,15 +55,22 @@ Sur le pom :
 			<artifactId>h2</artifactId>
 		</dependency>
 		
+### lancer la BD et vérifier qu'elle est accessible
+lancer la commande :
+
+    java -jar /home/user/.m2/repository/com/h2database/h2/V.R.R/h2-V.R.R.jar -tcpAllowOthers
+    
+V.R.R = version, release, revision
+		
 ### Configurer les parametres :
 Dans le fichiers application.properties :
 
-> spring.jpa.hibernate.ddl-auto=update
-> spring.jpa.properties..hibernate.dialect=org.hibernate.dialect.H2Dialect
-> spring.datasource.url=jdbc:h2:tcp://localhost:9092/~/tmp/sales
-> spring.datasource.username=sa
-> spring.datasource.password=changeme
-> spring.datasource.driverClassName=org.h2.Driver
+    spring.jpa.hibernate.ddl-auto=update
+    spring.jpa.properties..hibernate.dialect=org.hibernate.dialect.H2Dialect
+    spring.datasource.url=jdbc:h2:tcp://localhost:9092/~/tmp/sales
+    spring.datasource.username=sa
+    spring.datasource.password=changeme
+    spring.datasource.driverClassName=org.h2.Driver
 
 ### Préparer le code 
 1. Configurer le scan automatique des composants, Utiliser l'annotation 
@@ -131,9 +138,9 @@ Dans le fichiers application.properties :
 
 
 ### Ajouter les infos de l'application dans le fichier application.properties
-> info.app.name=Formation Spring 4
-> info.app.description=Gestion des clients avec Sprin boot
-> info.app.version=1.0.0
+    info.app.name=Formation Spring 4
+    info.app.description=Gestion des clients avec Sprin boot
+    info.app.version=1.0.0
 
 ### Vérifier les endpoints :
 
@@ -142,7 +149,7 @@ Dans le fichiers application.properties :
 
 ### Desactiver la securité pour les status et trace
 
-> management.security.enabled=false
+    management.security.enabled=false
 
 ### Vérifier les endpoints :
 * /metrics
