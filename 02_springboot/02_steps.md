@@ -159,6 +159,6 @@ Dans le fichiers application.properties :
 
 # Troubleshooting
 1. Problèmes de syntaxe sur eclipse
-  * Vérifier si le projet se compile avec malgré les erreurs Eclipse (mauvaise synchronisation)
+  * Vérifier si le projet se compile avec maven malgré les erreurs Eclipse (mauvaise synchronisation)
 2. Problèmes sur le lancement
   * Vérifier qu'il n'existe pas un process qui occupe les même ports
