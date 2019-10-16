@@ -17,7 +17,7 @@ Modifier la définition du POM en ajoutant:
 NB: supprimer le groupe et version existants
 
 Ajouter la dépendance boot web:
-```
+```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-web</artifactId>
@@ -25,9 +25,10 @@ Ajouter la dépendance boot web:
 ```
 ## Créer un controlleur
 Sur la classe pricipale ajouter la configuration automatique et la nature RestController :
-* @RestController
-* @EnableAutoConfiguration
-
+```java
+@RestController
+@EnableAutoConfiguration
+```
 ### Créer une méthode controlleur
 Créer une méthode qui répond à un mapping "/accueil" par un simple message
 
@@ -41,20 +42,20 @@ A partir du main en utilisant SpringApplication:
 ## Ajouter le support JPA
 ### Ajouter les dépendances necessaires
 Sur le pom :
-
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-jdbc</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-data-jpa</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>com.h2database</groupId>
-		<artifactId>h2</artifactId>
-	</dependency>
-		
+```xml
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-jdbc</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+	<groupId>com.h2database</groupId>
+	<artifactId>h2</artifactId>
+</dependency>
+```
 ### lancer la BD et vérifier qu'elle est accessible
 1. Lancer la commande :
 
@@ -89,19 +90,20 @@ Dans le fichiers application.properties :
 
 ## Activer SwaggerUI sur l'application (down top)
 ### Ajouter les dépendance :
-	<dependency>
-		<groupId>io.springfox</groupId>
-		<artifactId>springfox-swagger2</artifactId>
-		<version>2.8.0</version>
-	</dependency>
-	<dependency>
-		<groupId>io.springfox</groupId>
-		<artifactId>springfox-swagger-ui</artifactId>
-		<version>2.8.0</version>
-	</dependency>
-
+```xml
+<dependency>
+	<groupId>io.springfox</groupId>
+	<artifactId>springfox-swagger2</artifactId>
+	<version>2.8.0</version>
+</dependency>
+<dependency>
+	<groupId>io.springfox</groupId>
+	<artifactId>springfox-swagger-ui</artifactId>
+	<version>2.8.0</version>
+</dependency>
+```
 ## Activer Swagger sur l'application en indiquant le bon package à scanner:
-
+```java
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
@@ -109,10 +111,10 @@ Dans le fichiers application.properties :
             .paths(PathSelectors.regex("/.*"))
             .build().apiInfo(apiEndPointsInfo());
     }
-
+```
 ## Introduire la première documentation du WS concernant l'auteur :
 
-
+```java
     private ApiInfo apiEndPointsInfo() {
         return new ApiInfoBuilder().title("Spring Boot REST API")
             .description("Customer Management REST API")
@@ -123,24 +125,25 @@ Dans le fichiers application.properties :
             .build();
 
     }
-
+```
 ## Documenter un controlleur :
-
-	    @ApiOperation(value = "View a list of available cutomers", response = List.class)
-	    @ApiResponses(value = {
-	        @ApiResponse(code = 200, message = "Successfully retrieved list"),
-	        @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-	        @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-	    })
-
+```java
+    @ApiOperation(value = "View a list of available cutomers", response = List.class)
+    @ApiResponses(value = {
+	@ApiResponse(code = 200, message = "Successfully retrieved list"),
+	@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+	@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+    })
+```
 
 ## Activer le module actuator :
 ### Ajouter la dependance Actuator :
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-actuator</artifactId>
-	</dependency>
-
+```xml
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
 
 ### Ajouter les infos de l'application dans le fichier application.properties
     info.app.name=Formation Spring 4
