@@ -70,14 +70,14 @@ Créer une base de données sur un chemin accessible (c:/sales ou /tmp/sales)
 		
 ### Configurer les parametres :
 Dans le fichiers application.properties :
-
+```bash
     spring.jpa.hibernate.ddl-auto=update
     spring.jpa.properties..hibernate.dialect=org.hibernate.dialect.H2Dialect
     spring.datasource.url=jdbc:h2:tcp://localhost:9092/~/tmp/sales
     spring.datasource.username=sa
     spring.datasource.password=changeme
     spring.datasource.driverClassName=org.h2.Driver
-
+```
 ### Préparer le code 
 1. Configurer le scan automatique des composants, Utiliser l'annotation 
   * @ComponentScan({"com.formation.spring"})
