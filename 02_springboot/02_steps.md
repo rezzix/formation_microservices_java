@@ -24,6 +24,7 @@ Ajouter la dépendance boot starter web:
 </dependency>
 ```
 NB : si le bloc dependencies n'existe pas créer le d'abord
+
 ## Créer un controlleur
 Sur la classe pricipale ajouter la configuration automatique et la nature RestController :
 ```java
@@ -31,17 +32,21 @@ Sur la classe pricipale ajouter la configuration automatique et la nature RestCo
 @SpringBootApplication
 ```
 NB : la classe principale devrait se trouver ou être créée sous le package com.formation.microservices
+
 ### Créer une méthode controlleur
-Créer une méthode qui répond à un mapping "/accueil" par un simple message.
-Utiliser l'annotation @RequestMapping("/accueil"))
+Créer une méthode accueil qui répond à un mapping "/" par un simple message.
+Utiliser l'annotation @RequestMapping("/"))
+Vérifier le retour sur http://localhost:8080/
 
 ### Lancer l'application 
 A partir du main en utilisant la méthode SpringApplication.run():
 >  SpringApplication.run(App.class, args);
 
 ### Créer une méthode controlleur REST
-Créer une méthode qui répond à un mapping "restcustomers" et qui retourne un JSON à partir d'une liste statique de clients et relancer l'application
+Créer une méthode qui répond à un mapping "getsomecustomers" et qui retourne un JSON à partir d'une liste statique de clients et relancer l'application
 NB : utiliser les classes du dossier snippets
+
+Vérifier le retour sur http://localhost:8080/restcustomers
 
 ## Ajouter le support JPA
 ### Ajouter les dépendances necessaires
@@ -85,8 +90,8 @@ V.R.R = version, release, revision
 2. Ouvrir l'adresse http affichée dans la console :
 http://localhost:8082 
 
-Créer une base de données sur un chemin accessible (c:/sales ou /tmp/sales)
-		
+Créer une base de données sur un chemin accessible (c:/sales ou /tmp/sales) avec un mot 
+de passe simple (exmpl : changeme)		
 ### Configurer les parametres :
 Dans le fichiers application.properties :
 ```bash
