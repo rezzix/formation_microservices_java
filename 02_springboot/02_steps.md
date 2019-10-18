@@ -80,24 +80,13 @@ Placer les annotations suivantes :
 @JoinColumn(name="customer_id") // sur la relation plusieurs à un Sale->Customer
 
 ```
-### lancer la BD et vérifier qu'elle est accessible
-1. Lancer la commande :
-```bash
-    >java -jar /home/user/.m2/repository/com/h2database/h2/V.R.R/h2-V.R.R.jar -tcpAllowOthers
-```
-V.R.R = version, release, revision
 
-2. Ouvrir l'adresse http affichée dans la console :
-http://localhost:8082 
-
-Créer une base de données sur un chemin accessible (c:/sales ou /tmp/sales) avec un mot 
-de passe simple (exmpl : changeme)		
 ### Configurer les parametres :
 Dans le fichiers application.properties :
 ```bash
     spring.jpa.hibernate.ddl-auto=update
-    spring.jpa.properties..hibernate.dialect=org.hibernate.dialect.H2Dialect
-    spring.datasource.url=jdbc:h2:tcp://localhost:9092/~/tmp/sales
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
+    spring.datasource.url=jdbc:h2:mem:formation
     spring.datasource.username=sa
     spring.datasource.password=changeme
     spring.datasource.driverClassName=org.h2.Driver
