@@ -16,28 +16,32 @@ Modifier la définition du POM en ajoutant:
 ```
 NB: supprimer le groupe et version existants
 
-Ajouter la dépendance boot web:
+Ajouter la dépendance boot starter web:
 ```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 ```
+NB : si le bloc dependencies n'existe pas créer le d'abord
 ## Créer un controlleur
 Sur la classe pricipale ajouter la configuration automatique et la nature RestController :
 ```java
-@RestController
-@EnableAutoConfiguration
+@Controller
+@SpringBootApplication
 ```
+NB : la classe principale devrait se trouver ou être créée sous le package com.formation.microservices
 ### Créer une méthode controlleur
-Créer une méthode qui répond à un mapping "/accueil" par un simple message
-
-### Créer une méthode controlleur REST
-Créer une méthode qui répond à un mapping "restcustomers" et qui retourne un JSON à partir d'une liste de clients
+Créer une méthode qui répond à un mapping "/accueil" par un simple message.
+Utiliser l'annotation @RequestMapping("/accueil"))
 
 ### Lancer l'application 
-A partir du main en utilisant SpringApplication:
+A partir du main en utilisant la méthode SpringApplication.run():
 >  SpringApplication.run(App.class, args);
+
+### Créer une méthode controlleur REST
+Créer une méthode qui répond à un mapping "restcustomers" et qui retourne un JSON à partir d'une liste statique de clients et relancer l'application
+NB : utiliser les classes du dossier snippets
 
 ## Ajouter le support JPA
 ### Ajouter les dépendances necessaires
@@ -56,11 +60,26 @@ Sur le pom :
 	<artifactId>h2</artifactId>
 </dependency>
 ```
+### Annoter les classes "domain" pour représenter des entités JPA
+Placer les annotations suivantes :
+```java
+@Entity //sur les classes
+
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO) //sur les id (clés primaires)
+
+@OneToMany(mappedBy = "customer", fetch=FetchType.EAGER) //sur la relation un à plusieurs Customer->sales
+
+@JsonIgnore
+@ManyToOne(fetch=FetchType.EAGER)
+@JoinColumn(name="customer_id") // sur la relation plusieurs à un Sale->Customer
+
+```
 ### lancer la BD et vérifier qu'elle est accessible
 1. Lancer la commande :
-
+```bash
     >java -jar /home/user/.m2/repository/com/h2database/h2/V.R.R/h2-V.R.R.jar -tcpAllowOthers
-    
+```
 V.R.R = version, release, revision
 
 2. Ouvrir l'adresse http affichée dans la console :
@@ -168,5 +187,7 @@ Dans le fichiers application.properties :
 # Troubleshooting
 1. Problèmes de syntaxe sur eclipse
   * Vérifier si le projet se compile avec maven malgré les erreurs Eclipse (mauvaise synchronisation)
+  * Faire une premier build install avec une classe principale pour forcer le téléchargement des dépendances.
+  * Parfoit maven télécharge des dépendances incomplètes (reconnaissables par des problèmes d'ouverture de zips), il faut supprimer à partir de .m2/repository et relancer
 2. Problèmes sur le lancement
   * Vérifier qu'il n'existe pas un process qui occupe les même ports

@@ -32,3 +32,8 @@ Vérifier les conteneurs en exécution :
 > docker container ls
 > docker container ls -a
 ```
+
+Relancer le dernier, et executer une commande dessus :
+docker container start xyz
+docker container exec xyz ls
+docker container exec -it xyz vi
