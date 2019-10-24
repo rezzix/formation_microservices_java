@@ -28,11 +28,11 @@ public class Customer {
 		return String.format("Customer[id=%d, firstName='%s', lastName='%s']", id, firstName, lastName);
 	}
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

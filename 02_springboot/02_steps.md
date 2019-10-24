@@ -43,7 +43,7 @@ A partir du main en utilisant la méthode SpringApplication.run():
 >  SpringApplication.run(App.class, args);
 
 ### Créer une méthode controlleur REST
-Créer une méthode qui répond à un mapping "getsomecustomers" et qui retourne un JSON à partir d'une liste statique de clients et relancer l'application
+Créer une méthode qui répond à un mapping "restcustomers" et qui retourne un JSON à partir d'une liste statique de clients et relancer l'application.
 NB : utiliser les classes du dossier snippets
 
 Vérifier le retour sur http://localhost:8080/restcustomers
@@ -83,23 +83,35 @@ Placer les annotations suivantes :
 
 ### Configurer les parametres :
 Dans le fichiers application.properties :
-```bash
-    spring.jpa.hibernate.ddl-auto=update
-    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
-    spring.datasource.url=jdbc:h2:mem:formation
-    spring.datasource.username=sa
-    spring.datasource.password=changeme
-    spring.datasource.driverClassName=org.h2.Driver
+```yaml
+server:
+  port: 9090
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      dialect: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:formation
+    username: sa
+    password: changeme
+    driverClassName: org.h2.Driver
 ```
 ### Préparer le code 
-1. Configurer le scan automatique des composants, Utiliser l'annotation 
-  * @ComponentScan({"com.formation.spring"})
-2. Ajouter l'interface du repository CustomerRepository
-3. Copier les classes Entity et parametrer leur emplacement dans la classe de lancement
-  * @EntityScan("com.formation.spring.domain")
-4. Activer le repository ajouté
-  * @EnableJpaRepositories("com.formation.spring.repository")
-5. Ajouter une méthode REST du controlleur qui retourne la liste des utilisateurs de la BD
+1. Ajouter l'interface du repository CustomerRepository
+Les classes Entity et Repository doivent être dans le même package ou sous package de la classe principale pour être scannés et pris en considération. Alternativement il est possible de specifier un autre package sur les annotations :
+```java
+@EntityScan("com.formation.spring.domain")
+@EnableJpaRepositories("com.formation.spring.repository")
+```
+2. Ajouter au reposotory une méthode de recherche par nom ou prénom
+```java
+	@Query("Select c from Customer c where c.firstName like %:namepart% or c.lastName like %:namepart%")
+    List<Customer> findByNameContaining(@Param(value="namepart") String namepart);
+```
+3. Modifier la méthode REST du controlleur qui retourne la liste des utilisateurs afin d'utiliser la BD.
+
 
 ## Activer SwaggerUI sur l'application (down top)
 ### Ajouter les dépendance :
