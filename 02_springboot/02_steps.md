@@ -141,7 +141,7 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
 
 ```java
     private ApiInfo apiEndPointsInfo() {
-        return new ApiInfoBuilder().title("Spring Boot REST API")
+        return new ApiInfoBuilder().title("Customer Sales REST API")
             .description("Customer Management REST API")
             .contact(new Contact("Ossama Boughaba", "www.mederp.net", "boughaba@mederp.net"))
             .license("Apache 2.0")
@@ -153,8 +153,8 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
 ```
 ## Documenter un controlleur :
 ```java
-    @ApiOperation(value = "View a list of available cutomers", response = List.class)
-    @ApiResponses(value = {
+	@ApiOperation(value = "View a list of available customers", response = List.class)
+	@ApiResponses(value = {
 	@ApiResponse(code = 200, message = "Successfully retrieved list"),
 	@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 	@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
@@ -192,6 +192,7 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
 
 # Troubleshooting
 1. Problèmes de syntaxe sur eclipse
+  * Faire un click droit sur le projet -> maven -> update project pour prendre en condideration les librairies nouvellement ajoutée au pom
   * Vérifier si le projet se compile avec maven malgré les erreurs Eclipse (mauvaise synchronisation)
   * Faire une premier build install avec une classe principale pour forcer le téléchargement des dépendances.
   * Parfoit maven télécharge des dépendances incomplètes (reconnaissables par des problèmes d'ouverture de zips), il faut supprimer à partir de .m2/repository et relancer
