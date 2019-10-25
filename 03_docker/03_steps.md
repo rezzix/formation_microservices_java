@@ -1,4 +1,3 @@
-
 # Commandes de base
 ## Sur https://labs.play-with-docker.com
 ### Faire un tour de l'environnement :
@@ -27,6 +26,8 @@ et dans le container executer les commandes :
 ```	
 quitter avec CTL+D
 
+
+### Relance et execution de commandes 
 Vérifier les conteneurs en exécution :
 ```bash
 > docker container ls
@@ -37,3 +38,4 @@ Relancer le dernier, et executer une commande dessus :
 docker container start xyz
 docker container exec xyz ls
 docker container exec -it xyz vi
+

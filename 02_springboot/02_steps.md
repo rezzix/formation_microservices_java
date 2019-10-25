@@ -127,7 +127,13 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
 	<version>2.8.0</version>
 </dependency>
 ```
-## Activer Swagger sur l'application en indiquant le bon package à scanner:
+
+### Ajouter le support de swagger à la classe de configuration
+```java
+@EnableSwagger2
+```
+
+### Activer Swagger sur l'application en indiquant le bon package à scanner:
 ```java
     @Bean
     public Docket api() {
@@ -137,7 +143,7 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
             .build().apiInfo(apiEndPointsInfo());
     }
 ```
-## Introduire la première documentation du WS concernant l'auteur :
+### Introduire la première documentation du WS concernant l'auteur :
 
 ```java
     private ApiInfo apiEndPointsInfo() {
@@ -151,7 +157,7 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
 
     }
 ```
-## Documenter un controlleur :
+### Documenter un controlleur :
 ```java
 	@ApiOperation(value = "View a list of available customers", response = List.class)
 	@ApiResponses(value = {
@@ -160,6 +166,10 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
 	@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
     })
 ```
+### Verifier le front et le end point swagger
+http://localhost:9090/swagger-ui.html
+http://localhost:9090/v2/api-docs
+
 
 ## Activer le module actuator :
 ### Ajouter la dependance Actuator :
@@ -170,7 +180,7 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
 </dependency>
 ```
 
-### Ajouter les infos de l'application dans le fichier application.properties
+### Mettre les infos de l'application au format YAML et les copier fichier application.yml 
     info.app.name=Formation Spring 4
     info.app.description=Gestion des clients avec Sprin boot
     info.app.version=1.0.0
@@ -180,7 +190,7 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
 * /health
 * /info
 
-### Desactiver la securité pour les status et trace
+### Desactiver la securité pour les status et trace (application.yml)
 
     management.security.enabled=false
 
