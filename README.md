@@ -12,8 +12,16 @@
 
 
 ## Prérequis
+Pour mener à bien ces labs il important d'avoir les compétences suivante :
+* Connaissances en développement java
+* Familiarité avec Eclipse et maven
+* Connaissances de base sur l'administration linux
+* Familiarité avec GIT
+* Disposer ou créer des comptes docker hub et git hub
+
 Pour les différents TP nous aurons besoin des outils suivants :
 * Java 8 ou supérieur
 * Eclipse STS
 * Docker, Docker CE ou accès à http://labs.play-with-docker.com
 * PC ou serveur de 8G+ de RAM
+* Connexion internet ouverteok
