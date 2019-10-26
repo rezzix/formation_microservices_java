@@ -1,4 +1,4 @@
-# formation microservices java
+# Formation microservices java
 
 ## Travaux pratiques prévus :
 
