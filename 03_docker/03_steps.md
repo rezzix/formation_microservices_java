@@ -39,3 +39,31 @@ docker container start xyz
 docker container exec xyz ls
 docker container exec -it xyz vi
 
+### Creation d'un conteneur java
+
+```bash
+#> docker run -it --name mymicroservice openjdk:8-jdk-alpine /bin/sh
+docker#> apk update
+docker#> apk add figlet
+docker#> java -version
+
+```
+
+### Lancement du microservice packagé
+```bash
+docker#> apk get wget
+docker#> mkdir /usr/local/microservice
+docker#> cd /usr/local/microservice
+docker#> wget www.mederp.net/downloads/02_springboot-2.1.2.RELEASE.jar
+docker#> java -jar 02_springboot-2.1.2.RELEASE.jar
+```
+
+### modification du port d'écoute
+```bash
+#> docker run -it openjdk:8-jdk-alpine /bin/sh
+```
+
+### externalisation du dossier de l'application
+```bash
+#> docker run -v /tmp:/usr/local/microservice -it --name mymicroservice2 openjdk:8-jdk-alpine /bin/sh
+```
