@@ -21,3 +21,24 @@ docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=postgres -d -p 5432:5432
 ## lancer le frontal nginx 
 
 ## mettre le tout sur un fichier docker-compose
+```
+version: '3.2'
+services:
+  nginx:
+    image: google/cadvisor:latest
+    container_name: cadvisor
+    ports:
+    - 8080:8080
+    volumes:
+    - /:/rootfs:ro
+    - /var/run:/var/run:rw
+    - /sys:/sys:ro
+    - /var/lib/docker/:/var/lib/docker:ro
+    depends_on:
+    - redis
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+    - 6379:6379
+```
