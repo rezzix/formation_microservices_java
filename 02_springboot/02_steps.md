@@ -82,7 +82,7 @@ Placer les annotations suivantes :
 ```
 
 ### Configurer les parametres :
-Dans le fichiers application.properties :
+Dans le fichiers application.yml :
 ```yaml
 server:
   port: 9090
