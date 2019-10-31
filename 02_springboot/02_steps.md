@@ -89,9 +89,12 @@ server:
 spring:
   jpa:
     show-sql: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: create-drop
-      dialect: org.hibernate.dialect.H2Dialect
   datasource:
     url: jdbc:h2:mem:formation
     username: sa
@@ -182,7 +185,7 @@ http://localhost:9090/v2/api-docs
 
 ### Mettre les infos de l'application au format YAML et les copier fichier application.yml 
     info.app.name=Formation Spring 4
-    info.app.description=Gestion des clients avec Sprin boot
+    info.app.description=Gestion des clients avec Spring boot
     info.app.version=1.0.0
 
 ### Vérifier les endpoints :

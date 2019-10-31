@@ -6,6 +6,7 @@
 > ip a
 > df -h
 > top
+> docker info
 ```
 ### Tirer une première image
 Tirer et lancer l'image alpine linux
