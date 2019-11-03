@@ -1,10 +1,3 @@
-openapi: 3.0.2
-info:
-  description: ventes en microservice.
-  version: 1.0.0
-  title: ventes
-  contact:
-    email: boughaba@formation.com
 paths:
   /clients:
     get:
@@ -27,7 +20,7 @@ paths:
                     type: string
                   ventes:
                     $ref: '#/components/schemas/Sale'
-                  
+           
   '/client/{clientId}':
     get:
       tags:
@@ -102,32 +95,3 @@ paths:
       responses:
         '202':
           description: Accepted
-          
-servers:
-  - url: 'http://localhost/ventes_v1'
-    description: Local development server
-  - url: 'http://someotherhost.com/v1'
-    description: Production server
-components:
-#  securitySchemes:
-#    weather_service_auth:
-#      type: http
-#      scheme: bearer
-#      bearerFormat: JWT
-  schemas:
-    Customer:
-      type: object
-      properties:
-        id:
-          type: number
-        firstName:
-          type: string
-        lasttName:
-          type: string
-    Sale:
-      type: object
-      properties:
-        id:
-          type: number
-        amount:
-          type: string

@@ -1,0 +1,18 @@
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        id:
+          type: number
+        firstName:
+          type: string
+        lasttName:
+          type: string
+    Sale:
+      type: object
+      properties:
+        id:
+          type: number
+        amount:
+          type: string

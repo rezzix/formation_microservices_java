@@ -1,0 +1,7 @@
+openapi: 3.0.2
+info:
+  description: ventes en microservice.
+  version: 1.0.0
+  title: ventes
+  contact:
+    email: your_name@formation.com

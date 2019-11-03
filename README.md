@@ -24,4 +24,4 @@ Pour les différents TP nous aurons besoin des outils suivants :
 * Eclipse STS
 * Docker, Docker CE ou accès à http://labs.play-with-docker.com
 * PC ou serveur de 8G+ de RAM
-* Connexion internet ouverteok
+* Connexion internet ouverte

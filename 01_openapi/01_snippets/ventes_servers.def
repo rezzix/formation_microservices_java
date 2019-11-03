@@ -1,0 +1,5 @@
+servers:
+  - url: 'http://localhost/ventes_v1'
+    description: Local development server
+  - url: 'http://someotherhost.com/v1'
+    description: Production server

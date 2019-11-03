@@ -1,8 +1,23 @@
 # Sur l'éditeur Swagger
 
-## lancer l'editeur swagger sur docker
-docker run -d -p 80:8080  swaggerapi/swagger-editor 
+## Lancer l'editeur Swagger :
+Il est possible de lancer l'éditeur swagger de plusieurs manières :
+* Sur le site swagger :
+https://app.swaggerhub.com (enregistrement gratuit pour une instance virtuelle en cloud)
 
+* En local ou sur docker :
+docker run -d -p 80:8080  swaggerapi/swagger-editor
+
+* Sur play (même commande)
+https://labs.play-with-docker.com
+
+Copier et completer la définition des services en respectant l'ordre :
+1. ventes_info
+2. ventes_paths
+3. ventes_servers
+4. ventes components 
+
+Générer différents serveurs basés sur la définition de l'API, nous retenons l'implémentation serveur jersey pour la suite de l'exercice.
 
 # Sur Eclipse
 ## importer le projet maven
@@ -37,6 +52,10 @@ Utiliser les classes Customer, Sale et ClientDb pour simuler un système
 http://localhost:18080/ventes_v1/application.wadl
 * Vérifier les requêtes générées
 * Personnaliser les requêtes pour afficher les clients programmés dans ClientsDB
+
+## Editer les fonctions des servces et relancer
+
+
 
 
 # Troubleshooting

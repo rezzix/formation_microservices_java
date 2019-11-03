@@ -18,7 +18,7 @@ docker container exec xxxx prometheus -h
     image: prom/prometheus:latest
     container_name: prometheus
     ports:
-    - 9090:9090
+    - 6080:9090
     command:
     - --config.file=/etc/prometheus/prometheus.yml
     volumes:
@@ -51,3 +51,4 @@ Explorer les performances des conteneurs
 
 
 ## vérifier l'accès sur prometheus
+Ouvrir le port 6080 sur le navigateur.
