@@ -26,6 +26,9 @@ Copier le code généré (par Swagger codegen) dessus en écrasant les ficher d�
 
 
 ## lancer le projet
+Vérifier le fichier pom.xml
+- les dépendances
+- les ports de lancement de jetty
 Utiliser les paramètres du build :
 * package
 * jetty:run
@@ -33,7 +36,7 @@ Utiliser les paramètres du build :
 ## Ouvrir le fichier de description openapi
 http://localhost:8080/ventes_v1/openapi.json
 
-## Ouvrir le fichier de description
+## Ouvrir le descripteur de déploiement web.xml
 Activer la génération du fichier de description WADL sur web.xml
         <init-param>
             <param-name>jersey.config.server.wadl.disableWadl</param-name>
@@ -44,8 +47,14 @@ http://localhost:8080/ventes_v1/application.wadl
 
 ## Personnaliser les retours des méthodes métier implémentés
 ### Utiliser les code snippets
-Utiliser les classes Customer, Sale et ClientDb pour simuler un système
-
+Utiliser les classes Customer, Sale et ClientDb pour simuler un système :
+- Ajouter les dossier src/main et src/gen au build path
+- Modifier les packages des classes importées.
+- Implémenter les méthodes générées en retournant :
+``` java
+  * Response.ok().entity(XXX).build() pour les objets
+  * Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "mon message")).build() pour les messages.
+```
 # Sur SoapUI
 ## Creer un projet REST à partir du fichier wadl généré
 * Créer un nouveau projet, choisir une dédinition wadl au démarrage ou importer après création:

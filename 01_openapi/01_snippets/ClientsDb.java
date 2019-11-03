@@ -1,4 +1,4 @@
-package io.swagger.api.impl;
+package com.formation.microservice.domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
