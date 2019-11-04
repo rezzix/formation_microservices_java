@@ -22,6 +22,7 @@ Pour mener à bien ces labs il important d'avoir les compétences suivante :
 Pour les différents TP nous aurons besoin des outils suivants :
 * Java 8 ou supérieur
 * Eclipse STS
+* Postman et SoapUI
 * Docker, Docker CE ou accès à http://labs.play-with-docker.com
 * PC ou serveur de 8G+ de RAM
 * Connexion internet ouverte
