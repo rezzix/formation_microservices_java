@@ -55,17 +55,16 @@ Utiliser les classes Customer, Sale et ClientDb pour simuler un système :
   * Response.ok().entity(XXX).build() pour les objets
   * Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "mon message")).build() pour les messages.
 ```
+## Editer les fonctions des services et relancer
+Retourner un client à partir de ClientsDB en utilisant le get (avec son id en paramètre).
+Retourner une liste de clients à partir de ClientsDB en utilisant getValues()
+
 # Sur SoapUI
 ## Creer un projet REST à partir du fichier wadl généré
-* Créer un nouveau projet, choisir une dédinition wadl au démarrage ou importer après création:
+* Créer un nouveau projet, choisir une définition wadl au démarrage ou importer après création:
 http://localhost:18080/ventes_v1/application.wadl
 * Vérifier les requêtes générées
 * Personnaliser les requêtes pour afficher les clients programmés dans ClientsDB
-
-## Editer les fonctions des servces et relancer
-
-
-
 
 # Troubleshooting
 1. Problèmes de syntaxe sur l'editeur swagger codegen
