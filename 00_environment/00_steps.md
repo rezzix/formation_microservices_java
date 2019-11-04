@@ -1,8 +1,9 @@
 ## Installation des outils de développement
 * Eclipse STS
-Décompression, lancement
+  - Décompression, lancement
+  - Choisir un chemin de workspace simple (c:\workspaces\microservices)
 
-* Java 8 : verifier avec 
+* Java 8 : vérifier avec 
 ```bash
 #> java -version
 ```
