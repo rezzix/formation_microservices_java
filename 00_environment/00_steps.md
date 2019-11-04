@@ -18,6 +18,9 @@ Vérifier l'installation
 Faire un test sur l'api publique :
 https://www.amdoren.com/
 
+* SoapUI
+Vérifier l'installation.
+
 ```
 ## Sur Labs play docker 
 * Ouvrir la page https://labs.play-with-docker.com
