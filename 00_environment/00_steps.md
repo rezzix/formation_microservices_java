@@ -12,7 +12,9 @@ decompression, lancement
 ```bash
 #> mvn -version
 ```
-## Sur https://labs.play-with-docker.com
+## Sur Labs play docker 
+* Ouvrir la page https://labs.play-with-docker.com
+* Lancer une session docker
 Prérequis :
 * Compte sur dockerhub
 * Compte sur github
