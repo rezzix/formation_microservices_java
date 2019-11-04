@@ -43,7 +43,7 @@ Activer la génération du fichier de description WADL sur web.xml
 ```xml
         <init-param>
             <param-name>jersey.config.server.wadl.disableWadl</param-name>
-            <param-value>**true**</param-value>
+            <param-value>false</param-value>
         </init-param>
 ```  
 http://localhost:8080/ventes_v1/application.wadl
