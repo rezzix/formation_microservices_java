@@ -11,6 +11,8 @@ docker run -d -p 80:8080  swaggerapi/swagger-editor
 * Sur play (même commande)
 https://labs.play-with-docker.com
 
+Supprimer le contenu par défaut.
+
 Copier et completer la définition des services en respectant l'ordre :
 1. ventes_info
 2. ventes_paths
@@ -34,15 +36,16 @@ Utiliser les paramètres du build :
 * jetty:run
 
 ## Ouvrir le fichier de description openapi
-http://localhost:8080/ventes_v1/openapi.json
+http://localhost:18080/ventes_v1/openapi.json
 
 ## Ouvrir le descripteur de déploiement web.xml
 Activer la génération du fichier de description WADL sur web.xml
+```xml
         <init-param>
             <param-name>jersey.config.server.wadl.disableWadl</param-name>
             <param-value>**true**</param-value>
         </init-param>
-        
+```  
 http://localhost:8080/ventes_v1/application.wadl
 
 ## Personnaliser les retours des méthodes métier implémentés
