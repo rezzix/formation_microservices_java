@@ -8,22 +8,21 @@ utiliser le nom d'artifact 02_springboot
 ## Modifier le project object model (pom.xml)
 Modifier la définition du POM en ajoutant:
 ```xml
-<parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.7.RELEASE</version>
-</parent>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.2.RELEASE</version>
+	</parent>
 ```
-NB: supprimer le groupe et version existants
 
 Ajouter la dépendance boot starter web:
 ```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-</dependency>
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
 ```
-NB : si le bloc dependencies n'existe pas créer le d'abord
+NB : si le bloc <dependencies> n'existe pas créer le d'abord
 
 ## Créer un controlleur
 Sur la classe pricipale ajouter la configuration automatique et la nature RestController :
@@ -60,10 +59,6 @@ Sur le pom :
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
-<dependency>
-	<groupId>com.h2database</groupId>
-	<artifactId>h2</artifactId>
-</dependency>
 ```
 ### Annoter les classes "domain" pour représenter des entités JPA
 Placer les annotations suivantes :
@@ -85,22 +80,35 @@ Placer les annotations suivantes :
 Dans le fichiers application.yml :
 ```yaml
 server:
-  port: 9090
+  port: XXX
 spring:
   jpa:
-    show-sql: true
-    show-sql: true
+    show-sql: YYY
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: create-drop
   datasource:
-    url: jdbc:h2:mem:formation
+    url: UUUU
     username: sa
-    password: changeme
-    driverClassName: org.h2.Driver
+    password: PPPP
+    driverClassName: CCCC
 ```
+* Pour le port choisir un port qui ne pose pas conflit 9090
+* Pour show-sql mettre à true pour pouvoir suivre les requêtes générées
+* Pour l'Url choisir la BD H2 en mémoire : jdbc:h2:mem:formation
+* Pour le driver choisir : org.h2.Driver
+* Pour le password le choix est libre
+
+Ajouter la dépendance vers H2DB pour le tests
+```xml
+	<dependency>
+		<groupId>com.h2database</groupId>
+		<artifactId>h2</artifactId>
+	</dependency>
+```
+
 ### Préparer le code 
 1. Ajouter l'interface du repository CustomerRepository
 Les classes Entity et Repository doivent être dans le même package ou sous package de la classe principale pour être scannés et pris en considération. Alternativement il est possible de specifier un autre package sur les annotations :
@@ -146,13 +154,13 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
             .build().apiInfo(apiEndPointsInfo());
     }
 ```
-### Introduire la première documentation du WS concernant l'auteur :
+### Introduire la première documentation du WS concernant l'application et l'auteur :
 
 ```java
     private ApiInfo apiEndPointsInfo() {
-        return new ApiInfoBuilder().title("Customer Sales REST API")
+        return new ApiInfoBuilder().title("App Title")
             .description("Customer Management REST API")
-            .contact(new Contact("Ossama Boughaba", "www.mederp.net", "boughaba@mederp.net"))
+            .contact(new Contact("XNOM YPRENON", "www.xyz.net", "x@y.net"))
             .license("Apache 2.0")
             .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
             .version("1.0.0")
@@ -170,8 +178,10 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
     })
 ```
 ### Verifier le front et le end point swagger
+Génération de la définition de l'API
+* http://localhost:9090/v2/api-docs
+Génération de l'interface utilisateur pour explorer et tester l'API
 http://localhost:9090/swagger-ui.html
-http://localhost:9090/v2/api-docs
 
 
 ## Activer le module actuator :
@@ -183,17 +193,16 @@ http://localhost:9090/v2/api-docs
 </dependency>
 ```
 
-### Mettre les infos de l'application au format YAML et les copier fichier application.yml 
+### Mettre les infos de l'application au format YAML et les copier sur le fichier application.yml 
     info.app.name=Formation Spring 4
     info.app.description=Gestion des clients avec Spring boot
     info.app.version=1.0.0
 
 ### Vérifier les endpoints :
-
-* /health
 * /info
+* /health
 
-### Desactiver la securité pour les status et trace (application.yml)
+### Désactiver la securité pour les status et trace (application.yml)
 
     management.security.enabled=false
 

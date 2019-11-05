@@ -35,6 +35,9 @@ Utiliser les paramètres du build :
 * package
 * jetty:run
 
+## Pour eviter le conflit de ports
+remplacer 8080 par 18080 sur pom.xml
+
 ## Ouvrir le fichier de description openapi
 http://localhost:18080/ventes_v1/openapi.json
 
@@ -46,7 +49,7 @@ Activer la génération du fichier de description WADL sur web.xml
             <param-value>false</param-value>
         </init-param>
 ```  
-http://localhost:8080/ventes_v1/application.wadl
+http://localhost:18080/ventes_v1/application.wadl
 
 ## Personnaliser les retours des méthodes métier implémentés
 ### Utiliser les code snippets

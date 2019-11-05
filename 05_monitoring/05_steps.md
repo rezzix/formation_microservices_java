@@ -1,5 +1,5 @@
 # Objectif  
-protheus
+Assurer un monitoring de base grace aux outils cadvisor et protheus
 
 ## lancer promotheus sous docker
 docker run -p 9090:9090 prom/prometheus
