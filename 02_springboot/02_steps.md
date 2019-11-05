@@ -204,18 +204,17 @@ Génération de la définition de l'API
 Génération de l'interface utilisateur pour explorer et tester l'API
 http://localhost:9090/swagger-ui.html
 
-### Ajouter des messages personnalisés pour des codes retours donnés
-.useDefaultResponseMessages(false)                                   
-.globalResponseMessage(RequestMethod.GET,                     
-  newArrayList(new ResponseMessageBuilder()   
-    .code(500)
-    .message("500 message")
-    .responseModel(new ModelRef("Error"))
-    .build(),
-    new ResponseMessageBuilder() 
-      .code(403)
-      .message("Forbidden!")
-      .build()));
+### Construire un fat jar qui contient toute les dependances pour le lancement en stand alone
+```xml
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+```
 
 ## Activer le module actuator :
 ### Ajouter la dependance Actuator :
