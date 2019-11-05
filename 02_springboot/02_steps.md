@@ -94,7 +94,7 @@ spring:
     show-sql: YYY
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: DDD
     hibernate:
       ddl-auto: create-drop
   datasource:
@@ -107,6 +107,7 @@ spring:
 * Pour show-sql mettre à true pour pouvoir suivre les requêtes générées
 * Pour l'Url choisir la BD H2 en mémoire : jdbc:h2:mem:formation
 * Pour le driver choisir : org.h2.Driver
+* Pour le dialect choisir : org.hibernate.dialect.org.hibernate.dialect.H2Dialect
 * Pour le password le choix est libre
 
 Ajouter la dépendance vers H2DB pour le tests
