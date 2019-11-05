@@ -47,6 +47,14 @@ NB : utiliser les classes du dossier snippets
 
 Vérifier le retour sur http://localhost:8080/restcustomers
 
+### Ajouter la dependance jackson dataform xml
+```xml
+		<dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+```
+relancer en spéciafiant le header accept : application/xml
 ## Ajouter le support JPA
 ### Ajouter les dépendances necessaires
 Sur le pom :
