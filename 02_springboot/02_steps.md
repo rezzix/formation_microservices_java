@@ -107,7 +107,7 @@ spring:
 * Pour show-sql mettre à true pour pouvoir suivre les requêtes générées
 * Pour l'Url choisir la BD H2 en mémoire : jdbc:h2:mem:formation
 * Pour le driver choisir : org.h2.Driver
-* Pour le dialect choisir : org.hibernate.dialect.org.hibernate.dialect.H2Dialect
+* Pour le dialect choisir : org.hibernate.dialect.H2Dialect
 * Pour le password le choix est libre
 
 Ajouter la dépendance vers H2DB pour le tests
@@ -141,6 +141,8 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
     List<Customer> findByNameContaining(@Param(value="namepart") String namepart);
 ```
 4. Modifier la méthode REST du controlleur qui retourne la liste des utilisateurs afin d'utiliser la BD.
+
+5. Ajouter un paramètre à cette methode (@RequestParam namepart) pour utiliser la méthode findByNameContaining du repository 
 
 
 ## Activer SwaggerUI sur l'application (down top)
@@ -225,11 +227,11 @@ http://localhost:9090/swagger-ui.html
 ```
 
 ### Mettre les infos de l'application au format YAML et les copier sur le fichier application.yml 
-    info.app.name=Formation Spring 4
+    info.app.name=Formation microservices
     info.app.description=Gestion des clients avec Spring boot
     info.app.version=1.0.0
 
-### Vérifier les endpoints :
+### Relancer et vérifier les endpoints :
 * /info
 * /health
 

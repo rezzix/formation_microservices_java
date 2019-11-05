@@ -36,10 +36,11 @@ Vérifier les conteneurs en exécution :
 ```
 
 Relancer le dernier, et executer une commande dessus :
+```bash
 docker container start xyz
 docker container exec xyz ls
 docker container exec -it xyz vi
-
+```
 ### Creation d'un conteneur java
 
 ```bash
