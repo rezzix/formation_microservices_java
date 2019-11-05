@@ -27,7 +27,7 @@ NB : si le bloc <dependencies> n'existe pas créer le d'abord
 ## Créer un controlleur
 Sur la classe pricipale ajouter la configuration automatique et la nature RestController :
 ```java
-@Controller
+@RestController
 @SpringBootApplication
 ```
 NB : la classe principale devrait se trouver ou être créée sous le package com.formation.microservices
@@ -183,6 +183,18 @@ Génération de la définition de l'API
 Génération de l'interface utilisateur pour explorer et tester l'API
 http://localhost:9090/swagger-ui.html
 
+### Ajouter des messages personnalisés pour des codes retours donnés
+.useDefaultResponseMessages(false)                                   
+.globalResponseMessage(RequestMethod.GET,                     
+  newArrayList(new ResponseMessageBuilder()   
+    .code(500)
+    .message("500 message")
+    .responseModel(new ModelRef("Error"))
+    .build(),
+    new ResponseMessageBuilder() 
+      .code(403)
+      .message("Forbidden!")
+      .build()));
 
 ## Activer le module actuator :
 ### Ajouter la dependance Actuator :
