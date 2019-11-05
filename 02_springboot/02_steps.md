@@ -85,7 +85,7 @@ Placer les annotations suivantes :
 ```
 
 ### Configurer les parametres :
-Dans le fichiers application.yml :
+Dans le fichiers application.yml (src/main/resources) :
 ```yaml
 server:
   port: XXX
@@ -124,12 +124,22 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
 @EntityScan("com.formation.spring.domain")
 @EnableJpaRepositories("com.formation.spring.repository")
 ```
-2. Ajouter au reposotory une méthode de recherche par nom ou prénom
+2. Ajouter la méthode qui enregistre un nouveau client sur la BD
+```java
+	@RequestMapping(value = "/addcustomer", method = RequestMethod.POST)
+	public String addCustomer(Customer customer) {
+		customerrepository.save(customer);
+		System.out.println(customer);
+		return "Customer added";
+	}
+```
+
+3. Ajouter au reposotory une méthode de recherche par nom ou prénom
 ```java
 	@Query("Select c from Customer c where c.firstName like %:namepart% or c.lastName like %:namepart%")
     List<Customer> findByNameContaining(@Param(value="namepart") String namepart);
 ```
-3. Modifier la méthode REST du controlleur qui retourne la liste des utilisateurs afin d'utiliser la BD.
+4. Modifier la méthode REST du controlleur qui retourne la liste des utilisateurs afin d'utiliser la BD.
 
 
 ## Activer SwaggerUI sur l'application (down top)
