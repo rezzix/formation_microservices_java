@@ -116,7 +116,7 @@ Ajouter un service au fichier docker-compose.yml
     image: nginx:1.13
     restart: always
     ports:
-    - 1180:80
+    - 80:80
     - 443:443
     volumes:
     - ./nginx/conf.d:/etc/nginx/conf.d
