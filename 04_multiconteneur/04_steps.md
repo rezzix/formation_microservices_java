@@ -82,9 +82,57 @@ executer la commande psql
 * postgres>select * .... ; : executer des requêtes SQL
 * postgres>\q : quitter
 
-## lancer deux instances du conteneur
-à partir de l'image du microservice
-
-## configurer l'image nginx pour être un proxy HA sur les deux instances
-
 ## lancer le frontal nginx 
+
+Utiliser la configuration 
+```
+server {
+    listen 80;
+    charset utf-8;
+    access_log off;
+
+    location / {
+        proxy_pass http://10.x.x.x:9090;
+        proxy_set_header Host $host:$server_port;
+        #proxy_set_header X-Forwarded-Host $server_name;
+        #proxy_set_header X-Real-IP $remote_addr;
+        #proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location /static {
+        access_log   off;
+        expires      30d;
+
+        alias /app/static;
+    }
+}
+```
+
+Ajouter un service au fichier docker-compose.yml
+
+```yaml
+  nginx:
+    container_name: v-nginx
+    image: nginx:1.13
+    restart: always
+    ports:
+    - 1180:80
+    - 443:443
+    volumes:
+    - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+    - springbootapp
+```
+## Facultatif : configurer l'image nginx pour être un proxy  sur les deux instances
+* Configurer une deuxième instance du microservice (en changeant le port)
+* Remplacer le proxy direct par un proxy sur un cluster :
+  - proxy_pass  http://10.x.x.x:9090; par proxy_pass http://appcluster;
+  - définir le cluster 
+```  
+  upstream appcluster {
+    least_conn;
+    server 10.x.x.x:9090;
+    server 10.x.x.x:9091;
+    queue 100 timeout=70;
+  }
+```   

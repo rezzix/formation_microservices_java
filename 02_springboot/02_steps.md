@@ -198,7 +198,7 @@ Les classes Entity et Repository doivent être dans le même package ou sous pac
 	@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
     })
 ```
-### Verifier le front et le end point swagger
+### Verifier le front et la définition swagger générées
 Génération de la définition de l'API
 * http://localhost:9090/v2/api-docs
 Génération de l'interface utilisateur pour explorer et tester l'API
