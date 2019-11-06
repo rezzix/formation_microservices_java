@@ -105,7 +105,10 @@ Lancer la commande
 #>docker build .
 ```
 Corriger les erreurs éventelles, une fois corrigés donner un nom significatif à l'image
+
+```bash
 docker build -t entreprise/mymicroservice:V1 .
+```
 
 ## Faire un push sur docker hub
 * Vérifier l'existance d'un compte dockerhub
