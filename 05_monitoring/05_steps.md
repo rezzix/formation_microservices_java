@@ -13,7 +13,7 @@ docker run -p 9099:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml pr
 docker container exec xxxx prometheus -h
 
 ## Ajouter promotheus et cadvisor au fichier docker-compose
-
+```yaml
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
@@ -36,7 +36,7 @@ docker container exec xxxx prometheus -h
     - /sys:/sys:ro
     - /var/lib/docker/:/var/lib/docker:ro
     depends_on: springbootapp
-    
+ ```
 ## configurer prometheus : prometheus.yml
 scrape_configs:
 - job_name: cadvisor
