@@ -16,7 +16,7 @@ Ajouter un nouveau profile dans la config yml avec les différences suivantes
 ```yaml
       dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/sales
     username: postgres
     password: postgres
     driverClassName: org.postgresql.Driver
