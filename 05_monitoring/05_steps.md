@@ -45,11 +45,11 @@ scrape_configs:
   static_configs:
   - targets:
     - cadvisor:7000
-    
+```    
 ## vérifier l'accès sur cadvisor 
 Ouvrir le port 7000 sur le navigateur
 Explorer les performances des conteneurs
-```
+
 
 ## vérifier l'accès sur prometheus
 Ouvrir le port 6080 sur le navigateur.
