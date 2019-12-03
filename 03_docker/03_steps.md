@@ -89,10 +89,11 @@ FROM openjdk:8-jdk-alpine
 MAINTAINER Ossama Boughaba info@formation.com
 RUN apk update
 RUN apk add wget
-RUN wget www.mederp.net/downloads/02_springboot-2.1.2.RELEASE.jar
 RUN mkdir /opt/microservice
-RUN cp 02_springboot-2.1.2.RELEASE.jar /opt/microservice
 RUN cd /opt/microservice
+RUN wget www.mederp.net/downloads/02_springboot-2.1.2.RELEASE.jar
+# ou
+# COPY 02_springboot-2.1.2.RELEASE.jar /opt/microservice
 WORKDIR /opt/microservice
 
 EXPOSE 9090
