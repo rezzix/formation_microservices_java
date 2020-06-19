@@ -237,11 +237,13 @@ http://localhost:9090/swagger-ui.html
 ### Désactiver la securité pour les status et trace (application.yml)
 
     management.security.enabled=false
+    management.endpoints.web.exposure.include=*
 
 ### Vérifier les endpoints :
 * /metrics
 * /trace
 
+Suivre par exemple la consommation de la mémoire
 
 
 # Troubleshooting
